@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des entreprises{% endblock %}
+
+{% block body %}
+    <h1>Liste des entreprises</h1>
+
+    <a href="{{path('new_entreprise')}}" class="btn btn-success">Ajouter une entreprise</a>
+
+    {% for entreprise in entreprises %}
+        <a href=" {{path('show_entreprise', {'id': entreprise.id}) }}">{{entreprise}}</a><br>
+        <a class="btn btn-warning" href=" {{path('edit_entreprise', {'id': entreprise.id}) }}">Edit</a>
+        <a href="{{path('delete_entreprise', {'id': entreprise.id})}}" class="btn btn-danger">Delete</a>
+    {% endfor %}
+
+
+{% endblock %}
